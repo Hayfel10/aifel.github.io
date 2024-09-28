@@ -52,14 +52,17 @@
                 url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='198'%3e%3cpath fill='%2300FFFF' fill-opacity='0.25' d='M.005 121C311 121 409.898-.25 811 0c400 0 500 121 789 121v77H0s.005-48 .005-77z'/%3e%3c/svg%3e");
             background-repeat: repeat-x;
             background-size: 3000px 50%;
-            background-position: 0 130%, -150px 130%, 500px 130%, 2000px 130%;
-            animation: 20s waves linear infinite forwards;
+            background-position: 0 130%, 0 130%, 0 130%, 0 130%;
+            animation: waves 20s linear infinite;
             pointer-events: none;
         }
 
         @keyframes waves {
-            to {
-                background-position: 3000px 130%, 4500px 130%, 6500px 130%, 9500px 130%;
+            0% {
+                background-position: 0 130%, 0 130%, 0 130%, 0 130%;
+            }
+            100% {
+                background-position: 3000px 130%, 4500px 130%, 6000px 130%, 7500px 130%;
             }
         }
     </style>
@@ -67,8 +70,5 @@
 <body>
     <div class="grid"></div>
     <div class="waves"></div>
-    <script>
-        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-    </script>
 </body>
 </html>
