@@ -37,36 +37,77 @@
             }
         }
 
-        .waves {
+        .wave {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: transparent;
-            background-image: 
-                url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='198'%3e%3cpath fill='%231938FF' d='M.005 121C311 121 409.898-.25 811 0c400 0 500 121 789 121v77H0s.005-48 .005-77z'/%3e%3c/svg%3e"),
-                url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='198'%3e%3cpath fill='%234A90E2' fill-opacity='0.75' d='M.005 121C311 121 409.898-.25 811 0c400 0 500 121 789 121v77H0s.005-48 .005-77z'/%3e%3c/svg%3e"),
-                url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='198'%3e%3cpath fill='%2300FF7F' fill-opacity='0.5' d='M.005 121C311 121 409.898-.25 811 0c400 0 500 121 789 121v77H0s.005-48 .005-77z'/%3e%3c/svg%3e"),
-                url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='198'%3e%3cpath fill='%23FFD700' fill-opacity='0.75' d='M.005 121C311 121 409.898-.25 811 0c400 0 500 121 789 121v77H0s.005-48 .005-77z'/%3e%3c/svg%3e"),
-                url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='198'%3e%3cpath fill='%2300FFFF' fill-opacity='0.25' d='M.005 121C311 121 409.898-.25 811 0c400 0 500 121 789 121v77H0s.005-48 .005-77z'/%3e%3c/svg%3e");
             background-repeat: repeat-x;
             background-size: 3000px 50%;
-            background-position: 0 130%, -150px 130%, 500px 130%, 2000px 130%;
-            animation: 20s waves linear infinite forwards;
+            background-position: 0 130%;
             pointer-events: none;
         }
 
-        @keyframes waves {
-            to {
-                background-position: 3000px 130%, 4500px 130%, 6500px 130%, 9500px 130%;
-            }
+        /* Olas individuales con los nuevos colores */
+        .wave1 {
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='198'%3e%3cpath fill='%2394C6F2' d='M.005 121C311 121 409.898-.25 811 0c400 0 500 121 789 121v77H0s.005-48 .005-77z'/%3e%3c/svg%3e");
+            animation: wave1 15s linear infinite, distortion 6s ease-in-out infinite;
+        }
+
+        .wave2 {
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='198'%3e%3cpath fill='%23264773' fill-opacity='0.75' d='M.005 121C311 121 409.898-.25 811 0c400 0 500 121 789 121v77H0s.005-48 .005-77z'/%3e%3c/svg%3e");
+            animation: wave2 12s linear infinite, distortion 7s ease-in-out infinite;
+        }
+
+        .wave3 {
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='198'%3e%3cpath fill='%238C1127' fill-opacity='0.5' d='M.005 121C311 121 409.898-.25 811 0c400 0 500 121 789 121v77H0s.005-48 .005-77z'/%3e%3c/svg%3e");
+            animation: wave3 18s linear infinite, distortion 5s ease-in-out infinite;
+        }
+
+        .wave4 {
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='198'%3e%3cpath fill='%23A61723' fill-opacity='0.75' d='M.005 121C311 121 409.898-.25 811 0c400 0 500 121 789 121v77H0s.005-48 .005-77z'/%3e%3c/svg%3e");
+            animation: wave4 20s linear infinite, distortion 4s ease-in-out infinite;
+        }
+
+        /* Animaciones para las diferentes olas */
+        @keyframes wave1 {
+            0% { background-position: 0 130%; }
+            100% { background-position: 3000px 130%; }
+        }
+
+        @keyframes wave2 {
+            0% { background-position: 0 130%; }
+            100% { background-position: 3000px 130%; }
+        }
+
+        @keyframes wave3 {
+            0% { background-position: 0 130%; }
+            100% { background-position: 3000px 130%; }
+        }
+
+        @keyframes wave4 {
+            0% { background-position: 0 130%; }
+            100% { background-position: 3000px 130%; }
+        }
+
+        /* Distorsión para hacer las olas más orgánicas */
+        @keyframes distortion {
+            0% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-10px) scale(1.02); }
+            100% { transform: translateY(0) scale(1); }
         }
     </style>
 </head>
 <body>
     <div class="grid"></div>
-    <div class="waves"></div>
+
+    <!-- Cuatro capas de olas independientes -->
+    <div class="wave wave1"></div>
+    <div class="wave wave2"></div>
+    <div class="wave wave3"></div>
+    <div class="wave wave4"></div>
+
     <script>
         window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
     </script>
